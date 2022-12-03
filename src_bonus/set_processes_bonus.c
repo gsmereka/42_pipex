@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_processes_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gsmereka <gsmereka@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:16:01 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 22:18:09 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/02 19:43:35 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	set_files(int cmd, t_data *data)
 					(O_RDWR | O_CREAT | O_TRUNC));
 		if (data->files.here_doc == 1)
 			data->files.outfile_fd = open(data->files.outfile,
-					(O_RDWR | O_CREAT | O_APPEND));
+					O_RDWR | O_CREAT | O_APPEND, 0777);
 	}
 }
 

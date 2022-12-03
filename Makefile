@@ -29,11 +29,9 @@ SRC_B			=	./src_bonus/pipex_bonus.c ./src_bonus/check_args_bonus.c ./src_bonus/f
 					./src_bonus/initialize_bonus.c ./src_bonus/set_pathfinder_bonus.c  ./src_bonus/execute_bonus.c \
 					./src_bonus/set_here_doc_bonus.c ./src_bonus/set_arg_parser_bonus.c ./src_bonus/get_next_line_bonus.c
 
-UTILS			=	./utils/ft_itoa.c ./utils/ft_itohex.c ./utils/ft_printf.c ./utils/ft_putchar_fd.c \
-					./utils/ft_strchr.c ./utils/ft_strdup.c ./utils/ft_strjoin.c ./utils/ft_strlen.c \
-					./utils/ft_toupper.c ./utils/ft_utoa.c 	./utils/ft_putstr_fd.c ./utils/ft_split.c \
+UTILS			=	./utils/ft_strchr.c ./utils/ft_strdup.c ./utils/ft_strjoin.c ./utils/ft_strlen.c \
 					./utils/ft_substr.c ./utils/ft_calloc.c ./utils/ft_strlcpy.c ./utils/ft_bzero.c \
-					./utils/ft_strncmp.c
+					./utils/ft_strncmp.c ./utils/ft_split.c \
 
 OBJ				=	$(SRC:.c=.o)
 

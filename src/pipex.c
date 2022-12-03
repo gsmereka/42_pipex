@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gsmereka <gsmereka@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:01:18 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 12:31:47 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:53:20 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/pipex.h"
-
-//int execve(const char *pathname, char *const argv[], char *const envp[]);
 
 int	main(int argc, char *argv[], char *envp[])
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gsmereka <gsmereka@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 20:45:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:29:27 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	set_config(int argc, t_data *data)
 	data->paths = NULL;
 	data->files.pipes = NULL;
 	data->error_msg = NULL;
+	data->files.here_doc_pipe = NULL;
 	if (data->files.here_doc == 0)
 		data->n_cmds = argc - 3;
 	if (data->files.here_doc == 1)

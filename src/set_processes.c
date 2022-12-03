@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_processes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gsmereka <gsmereka@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:16:01 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 20:45:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/02 19:38:07 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	set_files(int cmd, t_data *data)
 	if (cmd == data->n_cmds - 1)
 	{
 		data->files.outfile_fd = open(data->files.outfile,
-				(O_RDWR | O_CREAT | O_TRUNC));
+				O_RDWR | O_CREAT | O_TRUNC, 0777);
 	}
 }
 
