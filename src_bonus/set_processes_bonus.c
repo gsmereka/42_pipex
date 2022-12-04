@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_processes_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsmereka <gsmereka@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:16:01 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/02 19:43:35 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:36:49 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,8 @@ static void	set_fork(int cmd, t_data *data)
 	else
 	{
 		data->process.pid[cmd] = pid;
-		if (cmd != data->n_cmds - 1)
-			waitpid(data->process.pid[cmd],
-				&data->process.status[cmd], WNOHANG);
+		waitpid(data->process.pid[cmd],
+			&data->process.status[cmd], WNOHANG | WUNTRACED);
 		close_fds(cmd, data);
 	}
 }
