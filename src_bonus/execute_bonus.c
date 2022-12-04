@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 22:17:43 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 20:45:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:34:39 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	close_fds_at_error(int cmd, t_data *data);
 
-void	execute(int cmd, char *const argv[], t_data *data)
+void	execute(int cmd, char **cmd_args, t_data *data)
 {
 	int		exec;
 
-	exec = execve(data->cmd[cmd], argv, NULL);
+	exec = execve(data->cmd[cmd], cmd_args, NULL);
 	if (exec == -1)
 	{
 		close_fds_at_error(cmd, data);
