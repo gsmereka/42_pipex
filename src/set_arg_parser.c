@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 17:53:10 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 13:01:49 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:06:03 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ static char	**set_spaces_back(char **args);
 void	arg_parser(char **argv, t_data *data)
 {
 	int	i;
+	int	cmd;
 
 	i = 0;
 	while (i < data->n_cmds)
 	{
-		data->cmd_arg[i] = parse_args(argv[i + 2]);
+		cmd = i + 2 + data->files.here_doc;
+		data->cmd_arg[i] = parse_args(argv[cmd]);
 		if (!data->cmd_arg[i])
 			finalize("Failed to allocate memory for arguments", 12, data);
 		i++;

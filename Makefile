@@ -11,23 +11,23 @@
 # **************************************************************************** #
 
 
-NAME			=	pipex_bonus
+NAME			=	pipex
 
 
-HEADERS			=	./headers/pipex_bonus.h ./headers/objects_bonus.h ./headers/utils.h 
+HEADERS			=	./headers/pipex.h ./headers/objects.h ./headers/utils.h 
 
 CFLAGS			=	-Wall -Wextra -Werror
 
 OBJ_DIR			= 	./obj
 
-SRC_DIR			=	/src_bonus
+SRC_DIR			=	/src
 
 UTILS_DIR		=	/utils
 
-SRC				=	pipex_bonus.c check_args_bonus.c finalize_bonus.c \
-					set_cmds_bonus.c redirect_bonus.c set_processes_bonus.c \
-					initialize_bonus.c set_pathfinder_bonus.c  execute_bonus.c \
-					set_here_doc_bonus.c set_arg_parser_bonus.c get_next_line_bonus.c
+SRC				=	pipex.c check_args.c finalize.c \
+					set_cmds.c redirect.c set_processes.c \
+					initialize.c set_pathfinder.c  execute.c \
+					set_here_doc.c set_arg_parser.c get_next_line.c
 
 UTILS			=	ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \
 					ft_substr.c ft_calloc.c ft_strlcpy.c ft_bzero.c \
@@ -57,4 +57,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: bonus all clean fclean re clear clear_bonus .c.o
+.PHONY: bonus all clean fclean re clear clear .c.o

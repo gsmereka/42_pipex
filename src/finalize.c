@@ -58,6 +58,8 @@ void	free_program_memory(t_data *data)
 		free(data->process.pid);
 		free(data->process.status);
 	}
+	if (data->files.here_doc == 1 && data->files.here_doc_pipe)
+		free(data->files.here_doc_pipe);
 }
 
 static void	free_cmd_args(t_data *data)

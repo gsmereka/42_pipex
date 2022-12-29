@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:32:14 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 20:45:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:05:49 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,19 @@ static void	set_config(int argc, t_data *data)
 	data->paths = NULL;
 	data->files.pipes = NULL;
 	data->error_msg = NULL;
-	data->n_cmds = argc - 3;
+	data->files.here_doc_pipe = NULL;
+	if (data->files.here_doc == 0)
+		data->n_cmds = argc - 3;
+	if (data->files.here_doc == 1)
+		data->n_cmds = argc - 4;
 }
 
 static void	set_files_path(int argc, char **argv, t_data *data)
 {
-	data->files.infile = argv[1];
+	if (data->files.here_doc == 0)
+		data->files.infile = argv[1];
+	if (data->files.here_doc == 1)
+		data->files.infile = NULL;
 	data->files.outfile = argv[argc - 1];
 }
 

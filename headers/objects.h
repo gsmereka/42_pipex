@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:02:22 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 22:29:33 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:03:37 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 typedef struct s_files
 {
+	int		here_doc;
+	int		*here_doc_pipe;
 	int		infile_fd;
 	int		outfile_fd;
 	char	*infile;

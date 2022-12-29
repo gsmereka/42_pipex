@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:16:01 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/04 18:05:39 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:06:26 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,20 @@ static void	set_pipes(int cmd, t_data *data)
 static void	set_files(int cmd, t_data *data)
 {
 	if (cmd == 0)
-		data->files.infile_fd = open(data->files.infile, O_RDWR);
+	{
+		if (data->files.here_doc == 0)
+			data->files.infile_fd = open(data->files.infile, O_RDWR);
+		else
+			data->files.infile_fd = data->files.here_doc_pipe[0];
+	}
 	if (cmd == data->n_cmds - 1)
 	{
-		data->files.outfile_fd = open(data->files.outfile,
-				O_RDWR | O_CREAT | O_TRUNC, 0777);
+		if (data->files.here_doc == 0)
+			data->files.outfile_fd = open(data->files.outfile,
+					(O_RDWR | O_CREAT | O_TRUNC));
+		if (data->files.here_doc == 1)
+			data->files.outfile_fd = open(data->files.outfile,
+					O_RDWR | O_CREAT | O_APPEND, 0777);
 	}
 }
 

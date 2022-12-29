@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_here_doc_bonus.c                               :+:      :+:    :+:   */
+/*   set_here_doc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 16:01:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/02 23:26:08 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:06:18 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/pipex_bonus.h"
+#include "../headers/pipex.h"
 
 static void	init_here_doc_settings(t_data *data);
 static void	init_here_doc(char **argv, t_data *data);

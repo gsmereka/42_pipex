@@ -20,7 +20,7 @@
 # include <stdio.h>
 
 // check_args
-void	check_args(int argc, t_data *data);
+void	check_args(int argc, char **argv, t_data *data);
 
 // parse_args
 void	arg_parser(char **argv, t_data *data);
@@ -48,5 +48,11 @@ void	execute(int cmd, char **cmd_args, t_data *data);
 
 // set_pathfinder
 void	set_pathfinder(char *envp[], t_data *data);
+
+// here_doc
+void	set_here_doc(char **argv, t_data *data);
+
+// gnl
+char	*get_next_line(int fd, int stop);
 
 #endif

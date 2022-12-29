@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:27:29 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/01 20:45:34 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:05:58 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	redirect_input(int cmd, t_data *data)
 			exit_error(cmd, data->files.infile, data);
 		dup_work = dup2(data->files.infile_fd, STDIN_FILENO);
 	}
-	else
+	if (cmd > 0)
 		dup_work = dup2(data->files.pipes[cmd - 1][0], STDIN_FILENO);
 	if (dup_work == -1)
 		finalize("Failed to execute dup2(2)", 24, data);

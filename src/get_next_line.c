@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 02:24:40 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/02 22:50:36 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:05:45 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/pipex_bonus.h"
+#include "../headers/pipex.h"
 
 static char	*ft_read(int fd, char *next_s);
 static char	*ft_actual_s(char *str);
