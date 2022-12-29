@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:16:01 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/29 14:06:26 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:13:40 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	set_files(int cmd, t_data *data)
 	{
 		if (data->files.here_doc == 0)
 			data->files.outfile_fd = open(data->files.outfile,
-					(O_RDWR | O_CREAT | O_TRUNC));
+					O_RDWR | O_CREAT | O_TRUNC, 0777);
 		if (data->files.here_doc == 1)
 			data->files.outfile_fd = open(data->files.outfile,
 					O_RDWR | O_CREAT | O_APPEND, 0777);
