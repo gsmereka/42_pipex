@@ -1,32 +1,32 @@
 # 42_pipex
 
-O objetivo deste projeto é simular o funcionamento do pipe no bash utilizando C.
+The goal of this project is to simulate the functioning of the pipe in bash using C.
 
-## Sobre o projeto
+## About the project
 
-Este projeto simula o comportamento do bash "cmd_1 < file_1 | cmd_2 > file_2", onde cada "cmd" é um comando que será executado pelo bash, e o símbolo "|" indica que o comando à esquerda será conectado ao comando à direita, formando uma "cadeia" ou "pipeline" de comandos. A notação "cmd_1 < file_1" e "> file_2" indica que o arquivo "file_1" será usado como entrada para o primeiro comando e o arquivo "file_2" será usado como saída do último comando da cadeia.
+This project simulates the behavior of the bash command "cmd_1 < file_1 | cmd_2 > file_2", where each "cmd" is a command that will be executed by bash, and the "|" symbol indicates that the command to the left will be connected to the command to the right, forming a "chain" or "pipeline" of commands. The notation "cmd_1 < file_1" and "> file_2" indicates that the "file_1" file will be used as input for the first command and the "file_2" file will be used as the output of the last command in the chain.
 
-É possível adicionar quantos comandos quiser na cadeia. Utilizamos a biblioteca de funções padrão libft para organizar os argumentos e criamos um processo para cada argumento de comando, executando-os com a função execve(). Além disso, fazemos a comunicação entre os processos e arquivos usando as funções pipe() e dup2(). Fique à vontade para contribuir ou fazer sugestões de melhorias.
+It is possible to add as many commands as desired to the chain. We use the standard libft function library to organize the arguments and create a process for each command argument, executing them with the execve() function. In addition, we communicate between processes and files using the pipe() and dup2() functions. Feel free to contribute or make suggestions for improvements.
 
-## Como utilizar?
+## How to use
 
-Para utilizar o programa "pipex", siga os seguintes passos:
+To use the "pipex" program, follow these steps:
 
-1. Execute o comando "make" para compilar o projeto.
-2. Execute o comando "./pipex <file_1> <cmd_1> <cmd_2> <file_2>" para utilizar o programa.
-   - Os arquivos "file_1" e "file_2" podem ser qualquer arquivo.
-   - Os comandos "cmd_1" e "cmd_2" podem ser qualquer comando do bash.
-   - É possível adicionar quantos comandos quiser na cadeia de comandos, basta seguir o mesmo formato.
+1. Execute the "make" command to create the executable "pipex".
+2. Execute the command "./pipex <file_1> <cmd_1> <cmd_2> <file_2>".
+   - The "file_1" and "file_2" files can be any file.
+   - The "cmd_1" and "cmd_2" commands can be any bash command.
+   - It is possible to add as many commands as desired to the command chain, just follow the same format.
 
-## Outras funcionalidades
+## Other features
 
-Este projeto também permite simular a utilização dos operadores "<<" e ">>" de maneira fácil e prática, simulando o seguinte comportamento do bash: "cmd_1 << EOF | cmd_2 >> file".
+This project also allows you to easily and conveniently simulate the use of the "<<" and ">>" operators, simulating the following bash behavior: "cmd_1 << EOF | cmd_2 >> file".
 
-O operador "<<" (here document) é um mecanismo de entrada de dados que permite ao usuário fornecer uma série de linhas de texto como entrada para um comando através da entrada padrão do bash. É preciso usar uma string "EOF" para indicar o final da leitura, mas essa string pode ser qualquer coisa.
+The "<<" operator (here document) is a data input mechanism that allows the user to provide a series of text lines as input to a command through the standard input of bash. You need to use a "EOF" string to indicate the end of the reading, but this string can be anything.
 
-O operador ">>" representa o redirecionamento da saída padrão do bash para um arquivo. A diferença em relação ao operador ">" é que o ">>" adiciona o conteúdo ao final do arquivo, ao invés de substituir o conteúdo existente pelo resultado do comando.
+The ">>" operator represents the redirection of the standard output of bash to a file. The difference with respect to the ">" operator is that ">>" adds the content to the end of the file, instead of replacing the existing content with the result of the command.
 
-## Exemplos
+## Examples
 
 * $> ./pipex infile "ls -l" "wc -l" outfile
 	- Should behave like: < infile ls -l | wc -l > outfile
