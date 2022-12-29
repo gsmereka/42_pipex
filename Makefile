@@ -18,22 +18,29 @@ HEADERS			=	./headers/pipex_bonus.h ./headers/objects_bonus.h ./headers/utils.h
 
 CFLAGS			=	-Wall -Wextra -Werror
 
-SRC				=	./src_bonus/pipex_bonus.c ./src_bonus/check_args_bonus.c ./src_bonus/finalize_bonus.c \
-					./src_bonus/set_cmds_bonus.c ./src_bonus/redirect_bonus.c ./src_bonus/set_processes_bonus.c \
-					./src_bonus/initialize_bonus.c ./src_bonus/set_pathfinder_bonus.c  ./src_bonus/execute_bonus.c \
-					./src_bonus/set_here_doc_bonus.c ./src_bonus/set_arg_parser_bonus.c ./src_bonus/get_next_line_bonus.c
+OBJ_DIR			= 	./obj
 
-UTILS			=	./utils/ft_strchr.c ./utils/ft_strdup.c ./utils/ft_strjoin.c ./utils/ft_strlen.c \
-					./utils/ft_substr.c ./utils/ft_calloc.c ./utils/ft_strlcpy.c ./utils/ft_bzero.c \
-					./utils/ft_strncmp.c ./utils/ft_split.c \
+SRC_DIR			=	/src_bonus
 
-OBJ				=	$(SRC:.c=.o)
+UTILS_DIR		=	/utils
 
-OBJ_UTILS		=	$(UTILS:.c=.o)
+SRC				=	pipex_bonus.c check_args_bonus.c finalize_bonus.c \
+					set_cmds_bonus.c redirect_bonus.c set_processes_bonus.c \
+					initialize_bonus.c set_pathfinder_bonus.c  execute_bonus.c \
+					set_here_doc_bonus.c set_arg_parser_bonus.c get_next_line_bonus.c
+
+UTILS			=	ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c \
+					ft_substr.c ft_calloc.c ft_strlcpy.c ft_bzero.c \
+					ft_strncmp.c ft_split.c \
+
+OBJ				=	$(addprefix $(OBJ_DIR), $(addprefix $(SRC_DIR)/, $(SRC:.c=.o)))
+
+OBJ_UTILS		=	$(addprefix $(OBJ_DIR), $(addprefix $(UTILS_DIR)/, $(UTILS:.c=.o)))
 
 all: $(NAME)
 
-.c.o:
+$(OBJ_DIR)/%o : %c
+	@mkdir -p $(OBJ_DIR) $(OBJ_DIR)$(SRC_DIR) $(OBJ_DIR)$(UTILS_DIR) 
 	cc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(HEADERS) $(OBJ) $(OBJ_UTILS)
@@ -43,7 +50,7 @@ clear: $(NAME) clean
 	clear
 
 clean:
-	rm -f $(OBJ) $(OBJ_B) $(OBJ_UTILS)
+	rm -rf $(OBJ) $(OBJ_B) $(OBJ_UTILS) $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME) $(NAME_B)

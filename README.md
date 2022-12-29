@@ -35,7 +35,7 @@ The ">>" operator represents the redirection of the standard output of bash to a
 	- Should behave like: < infile grep a1 | wc -w > outfile
 
 * $> ./pipex infile "grep a1" "wc -w" cat cat cat cat outfile
-	- Should behave like: < infile grep a1 | wc -w | cat | cat | cat | cat > outfile
+	- Should behave like: < infile grep a1 | wc -w | cat | cat | cat | ls > outfile
 
 * $> ./pipex here_doc EOF "cat" "wc -l" outfile
 	- Should behave like: cat << EOF | wc -l >> outfile
