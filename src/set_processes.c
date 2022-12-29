@@ -6,7 +6,7 @@
 /*   By: gsmereka <gsmereka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 23:16:01 by gsmereka          #+#    #+#             */
-/*   Updated: 2022/12/29 14:13:40 by gsmereka         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:21:34 by gsmereka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	set_pipes(int cmd, t_data *data);
 static void	set_files(int cmd, t_data *data);
-static void	set_fork(int cmd, t_data *data);
+static void	set_fork(int cmd, char **envp, t_data *data);
 static void	close_fds(int cmd, t_data *data);
 
-int	set_processes(t_data *data)
+int	set_processes(char **envp, t_data *data)
 {
 	int	cmd;
 
@@ -26,7 +26,7 @@ int	set_processes(t_data *data)
 	{
 		set_pipes(cmd, data);
 		set_files(cmd, data);
-		set_fork(cmd, data);
+		set_fork(cmd, envp, data);
 		cmd++;
 	}
 	return (0);
@@ -58,7 +58,7 @@ static void	set_files(int cmd, t_data *data)
 	}
 }
 
-static void	set_fork(int cmd, t_data *data)
+static void	set_fork(int cmd, char **envp, t_data *data)
 {
 	int	pid;
 
@@ -69,7 +69,7 @@ static void	set_fork(int cmd, t_data *data)
 	{
 		redirect_input(cmd, data);
 		redirect_output(cmd, data);
-		execute(cmd, data->cmd_arg[cmd], data);
+		execute(cmd, data->cmd_arg[cmd], envp, data);
 	}
 	else
 	{

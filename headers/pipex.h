@@ -41,10 +41,10 @@ void	redirect_input(int cmd, t_data *data);
 void	redirect_output(int cmd, t_data *data);
 
 // processes
-int		set_processes(t_data *data);
+int		set_processes(char **envp, t_data *data);
 
 // execute
-void	execute(int cmd, char **cmd_args, t_data *data);
+void	execute(int cmd, char **cmd_args, char **envp, t_data *data);
 
 // set_pathfinder
 void	set_pathfinder(char *envp[], t_data *data);
